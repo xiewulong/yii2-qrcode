@@ -1,0 +1,24 @@
+{
+	"name": "xiewulong/yii2-qrcode",
+	"description": "",
+	"keywords": ["yii2", "xiewulong", "qrcode", "phpqrcode"],
+	"type": "yii2-extension",
+	"license": "MIT",
+	"support": {
+		"issues": "https://github.com/xiewulong/yii2-qrcode/issues",
+		"wiki": "https://github.com/xiewulong/yii2-qrcode/wiki",
+		"source": "https://github.com/xiewulong/yii2-qrcode"
+	},
+	"authors": [
+		{
+			"name": "xiewulong",
+			"email": "xiewulong@vip.qq.com"
+		}
+    ],
+    "require": {
+        "yiisoft/yii2": "*"
+    },
+	"autoload": {
+		"psr-4": {"yii\\qrcode\\": ""}
+	}
+}
