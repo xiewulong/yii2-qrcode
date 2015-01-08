@@ -16,7 +16,8 @@
 		}
     ],
     "require": {
-        "yiisoft/yii2": "*"
+        "yiisoft/yii2": "*",
+        "aferrandini/phpqrcode": "*",
     },
 	"autoload": {
 		"psr-4": {"yii\\qrcode\\": ""}
