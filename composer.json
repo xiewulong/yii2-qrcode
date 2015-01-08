@@ -1,7 +1,7 @@
 {
 	"name": "xiewulong/yii2-qrcode",
 	"description": "QR Code 2-D barcode generator",
-	"keywords": ["yii2", "xiewulong", "qrcode", "phpqrcode"],
+	"keywords": ["yii2", "xiewulong", "qrcode", "php", "phpqrcode"],
 	"type": "yii2-extension",
 	"license": "MIT",
 	"support": {
