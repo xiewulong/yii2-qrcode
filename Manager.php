@@ -20,7 +20,10 @@ class Manager{
 	public $pre = 'qr_';
 
 	//缓存路径配置
-	public $temp = 'qrcode';
+	public $tmp = '@webroot/assets/upload';
+
+	//访问路径
+	public $src = '@web/assets/upload';
 
 	//存放路径
 	private $path = false;
