@@ -5,7 +5,7 @@
  * https://github.com/xiewulong/yii2-qrcode
  * https://raw.githubusercontent.com/xiewulong/yii2-qrcode/master/LICENSE
  * create: 2015/1/8
- * update: 2015/1/8
+ * update: 2015/3/28
  * version: 0.0.1
  */
 
@@ -18,27 +18,6 @@ class Manager{
 
 	//文件名前缀
 	public $pre = 'qr_';
-
-	//缓存路径配置
-	public $tmp = '@webroot/assets/upload';
-
-	//访问路径
-	public $src = '@web/assets/upload';
-
-	//存放路径
-	private $path = false;
-
-	//文件名
-	private $name = false;
-
-	//绝对路径
-	private $root = false;
-
-	//创建时间
-	private $time = false;
-
-	//时间路径, 精确到天
-	public $timepath = false;
 
 	//错误纠正等级0-3
 	public $level = 2;
@@ -103,78 +82,11 @@ class Manager{
 	 * @example Yii::$app->qrcode->create($data);
 	 */
 	public function create($data){
-		$path = $this->getPath();
-		$file = $this->getName();
-		$root = $this->getRoot() . DIRECTORY_SEPARATOR . $file;
-		QRcode::png($data, $root, $this->level, $this->size, $this->margin);
+		$fileupload = \Yii::$app->fileupload;
+		$file = $fileupload->createFile($this->ext, null, $this->pre);
+		QRcode::png($data, $file['tmp'], $this->level, $this->size, $this->margin);
 
-		return [
-			'name' => $this->name,
-			'path' => $path,
-			'root' => $root,
-			'url' => Yii::getAlias('@web/assets') . DIRECTORY_SEPARATOR . $path . DIRECTORY_SEPARATOR . $file,
-		];
-	}
-
-	/**
-	 * 获取文件名
-	 * @method getName
-	 * @since 0.0.1
-	 * @return {string}
-	 */
-	private function getName(){
-		if($this->name === false){
-			$this->name = $this->pre . $this->getTime() . '_' . md5(mt_rand()) . '.' . $this->ext;
-		}
-		return $this->name;
-	}
-
-	/**
-	 * 获取绝对路径
-	 * @method getRoot
-	 * @since 0.0.1
-	 * @return {string}
-	 */
-	private function getRoot(){
-		if($this->root === false){
-			$this->root = Yii::getAlias('@webroot/assets') . DIRECTORY_SEPARATOR . $this->getPath();
-			if(!file_exists($this->root)){
-				mkdir($this->root, 0777, true);
-			}
-		}
-
-		return $this->root;
-	}
-
-	/**
-	 * 获取存放路径
-	 * @method getPath
-	 * @since 0.0.1
-	 * @return {string}
-	 */
-	private function getPath(){
-		if($this->path === false){
-			$this->path = $this->temp;
-			if($this->timepath){
-				$this->path .= date('/Y/m/d', $this->getTime());
-			}
-		}
-
-		return $this->path;
-	}
-
-	/**
-	 * 获取创建时间
-	 * @method getTime
-	 * @since 0.0.1
-	 * @return {timestamp}
-	 */
-	private function getTime(){
-		if($this->time === false){
-			$this->time = time();
-		}
-
-		return $this->time;
+		return $fileupload->finalFile($file, 'images');
 	}
 
 }
