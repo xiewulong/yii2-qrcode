@@ -23,7 +23,7 @@ class Manager{
 	public $level = 2;
 
 	//尺寸1-27
-	public $size = 4;
+	public $size = 6;
 
 	//周围间距, 正整数, 默认2 * 4(px)
 	public $margin = 2;
