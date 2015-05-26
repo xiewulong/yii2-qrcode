@@ -5,7 +5,7 @@
  * https://github.com/xiewulong/yii2-qrcode
  * https://raw.githubusercontent.com/xiewulong/yii2-qrcode/master/LICENSE
  * create: 2015/1/8
- * update: 2015/3/28
+ * update: 2015/5/26
  * version: 0.0.1
  */
 
