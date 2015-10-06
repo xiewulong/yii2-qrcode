@@ -5,7 +5,7 @@
  * https://github.com/xiewulong/yii2-qrcode
  * https://raw.githubusercontent.com/xiewulong/yii2-qrcode/master/LICENSE
  * create: 2015/1/8
- * update: 2015/5/26
+ * update: 2015/10/6
  * version: 0.0.1
  */
 
@@ -37,7 +37,7 @@ class Manager{
 	 * @since 0.0.1
 	 * @param {number} $size 尺寸
 	 * @return {object}
-	 * @example Yii::$app->qrcode->setSize($size);
+	 * @example \Yii::$app->qrcode->setSize($size);
 	 */
 	public function setSize($size){
 		$this->size = $size;
@@ -51,7 +51,7 @@ class Manager{
 	 * @since 0.0.1
 	 * @param {string} $level 等级
 	 * @return {object}
-	 * @example Yii::$app->qrcode->setLevel($level);
+	 * @example \Yii::$app->qrcode->setLevel($level);
 	 */
 	public function setLevel($level){
 		$this->level = $level;
@@ -65,7 +65,7 @@ class Manager{
 	 * @since 0.0.1
 	 * @param {number} $margin 外间距
 	 * @return {object}
-	 * @example Yii::$app->qrcode->setMargin($margin);
+	 * @example \Yii::$app->qrcode->setMargin($margin);
 	 */
 	public function setMargin($margin){
 		$this->margin = $margin;
@@ -79,7 +79,7 @@ class Manager{
 	 * @since 0.0.1
 	 * @param {string} $data 数据
 	 * @return {array}
-	 * @example Yii::$app->qrcode->create($data);
+	 * @example \Yii::$app->qrcode->create($data);
 	 */
 	public function create($data){
 		$fileupload = \Yii::$app->fileupload;
